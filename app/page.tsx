@@ -8,10 +8,12 @@ export default async function Home() {
   return (
     <main className="overflow-hidden">
       <Hero />
-      <div className="mt-12 paddind-x padding-y max-width"
+      <div className="mt-12 padding-x padding-y max-width"
        id="discover">
+
         <div className="home__text-container">
           <h1 className="text-4xl font-extrabold">Car Catalogue</h1>
+          <p>Explore the cars you might like</p>
           <div className="home__filters">
             <SearchBar />
             <div className="home__filter-container">
@@ -19,11 +21,9 @@ export default async function Home() {
               <CustomFilter title="year" />
             </div>
           </div>
-
-        </div>
-        {!isDataEmpty ? (
+          {!isDataEmpty ? (
           <section>
-            <div className="home__car-wrapper">
+            <div className="home__cars-wrapper">
               {allCars?.map((car)=>(
                 <CarCard car={car}/>
               ))}
@@ -38,6 +38,9 @@ export default async function Home() {
             <p>{allCars?.massage}</p>
           </div>
         )}
+        </div>
+        
+        
 
       </div>
     </main>
